@@ -1,4 +1,4 @@
-module streamz.filestream;
+module streamz.streams.filestream;
 
 import streamz.stream;
 

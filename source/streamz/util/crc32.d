@@ -1,4 +1,4 @@
-module streamz.crc32;
+module streamz.util.crc32;
 
 import streamz.face;
 

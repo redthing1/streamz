@@ -1,3 +1,6 @@
 name "streamz"
 description "simple streams library based on freck-streams"
 authors "redthing1"
+license "proprietary"
+copyright "Copyright © 2022, redthing1"
+

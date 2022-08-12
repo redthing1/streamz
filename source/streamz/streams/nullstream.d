@@ -1,4 +1,4 @@
-module streamz.nullstream;
+module streamz.streams.nullstream;
 
 import streamz.stream;
 
