@@ -1,19 +1,12 @@
-/**
- * Easy-to-use I/O streams: memory stream implementation
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.memorystream;
+module streamz.memorystream;
 
-import freck.streams.stream;
+import streamz.stream;
 
 ///Memory i/o stream
 class MemoryStream : Stream
 {
-	import freck.streams.exception;
-	import freck.streams.util: writeRaw;
+	import streamz.exception;
+	import streamz.util: writeRaw;
 
 protected:
 	ubyte[] buf;
@@ -170,7 +163,7 @@ public:
 unittest
 {
 	import std.stdio: stdout, write, writeln;
-	import freck.streams.tests;
+	import streamz.tests;
 
 	write("Running MemoryStream simple tests:"); stdout.flush;
 	assertSimpleReads(MemoryStream.fromScratch());

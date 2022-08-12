@@ -1,11 +1,4 @@
-/**
- * Easy-to-use I/O streams: utility functions
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.streaminterface;
+module streamz.face;
 
 
 ///Endiannes: big, little
@@ -28,7 +21,7 @@ enum Seek {
 	end
 }
 
-interface StreamInterface
+interface IStream
 {
 	/***********************************
 	 * Sets the stream endianness. Affects on the byte order during read and write units and ulongs.

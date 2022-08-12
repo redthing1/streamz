@@ -1,20 +1,13 @@
-/**
- * Easy-to-use I/O streams: file stream implementation
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.filestream;
+module streamz.filestream;
 
-import freck.streams.stream;
+import streamz.stream;
 
 
 ///File i/o stream
 class FileStream : Stream
 {
 	import std.stdio: File;
-	import freck.streams.exception;
+	import streamz.exception;
 
 protected:
 	static immutable READABLE = [
@@ -166,7 +159,7 @@ unittest
 {
 	import std.stdio: stdout, write, writeln;
 	import std.file: tempDir;
-	import freck.streams.tests;
+	import streamz.tests;
 
 	auto createStream(string fileName, string mode)
 	{

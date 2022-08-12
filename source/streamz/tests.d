@@ -1,15 +1,8 @@
-/**
- * Easy-to-use I/O streams: testing stuff for internal use only
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.tests;
+module streamz.tests;
 
 version(unittest)
 {
-	import freck.streams.stream, freck.streams.util;
+	import streamz.stream, streamz.util;
 
 	void assertSimpleReads(Stream stream)
 	{

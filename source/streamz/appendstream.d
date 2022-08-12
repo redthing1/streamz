@@ -1,36 +1,29 @@
-/**
- * Easy-to-use I/O streams: stream that wraps several streams one after the other.
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.appendstream;
+module streamz.appendstream;
 
-import freck.streams.stream;
+import streamz.stream;
 
 ///Implementation of stream that wraps several streams one after the other.
 class AppendStream : Stream
 {
-	import freck.streams.exception;
-	import freck.streams.util: writeRaw;
+	import streamz.exception;
+	import streamz.util: writeRaw;
 
 protected:
-	StreamInterface[] streams;
+	IStream[] streams;
 	size_t current = 0;
 	size_t pos = 0;
 
 	bool seekable = true;
 
 public:
-	this(StreamInterface[] streams, string[string] metadata = null, Endian e = Endian.platform)
+	this(IStream[] streams, string[string] metadata = null, Endian e = Endian.platform)
 	{
 		super(metadata, e);
 
 		foreach (stream; streams) addStream(stream);
 	}
 
-	void addStream(StreamInterface stream)
+	void addStream(IStream stream)
 	{
 		if (!stream.isReadable) throw new StreamsException(appendNonreadableStream);
 		if (!stream.isSeekable) this.seekable = false;
@@ -167,7 +160,7 @@ public:
 unittest
 {
 	import std.stdio: stdout, write, writeln;
-	import freck.streams.memorystream: MemoryStream;
+	import streamz.memorystream: MemoryStream;
 
 	write("Running AppendStrem tests:"); stdout.flush;
 

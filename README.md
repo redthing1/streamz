@@ -12,8 +12,8 @@ Simple in-memory stream.
 
 ```D
 import std.stdio;
-import freck.streams.streaminterface;
-import freck.streams.memorystream;
+import streamz.face;
+import streamz.memorystream;
 
 auto stream = MemoryStream.fromBytes(cast(ubyte[])"Hello", ["Roses": "Are red"]);
 
@@ -30,8 +30,8 @@ Simple file stream built on top of `std.stdio.File`.
 
 ```D
 import std.stdio;
-import freck.streams.streaminterface;
-import freck.streams.filestream;
+import streamz.face;
+import streamz.filestream;
 
 auto stream = new FileStream("stream.txt", "w+b", ["Roses": "Are red"]);
 
@@ -49,9 +49,9 @@ Reads from multiple streams, one after the other.
 
 ```D
 import std.stdio;
-import freck.streams.streaminterface;
-import freck.streams.memorystream;
-import freck.streams.appendstream;
+import streamz.face;
+import streamz.memorystream;
+import streamz.appendstream;
 
 auto stream1 = MemoryStream.fromBytes(cast(ubyte[])"Hello ");
 auto stream2 = MemoryStream.fromBytes(cast(ubyte[])"World");
@@ -72,9 +72,9 @@ Each stream has an endianness attribute with default value `Endian.platform`. Th
 
 ```D
 import std.stdio;
-import freck.streams.streaminterface;
-import freck.streams.memorystream;
-import freck.streams.util: readScalar;
+import streamz.face;
+import streamz.memorystream;
+import streamz.util: readScalar;
 
 auto stream = MemoryStream.fromBytes(cast(ubyte[])[1, 2, 3, 4]);
 

@@ -1,16 +1,9 @@
-/**
- * Easy-to-use I/O streams: abstract stream
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.stream;
+module streamz.stream;
 
-public import freck.streams.streaminterface;
+public import streamz.face;
 
 ///Abstract i/o stream interface
-class Stream: StreamInterface
+class Stream: IStream
 {
 protected:
 	Endian endian = Endian.little;
@@ -29,7 +22,7 @@ public:
 	 */
 	void setEndian(Endian e)
 	{
-		import freck.streams.util: platformEndian;
+		import streamz.util: platformEndian;
 		this.endian = (e == Endian.platform) ? platformEndian : e;
 	}
 

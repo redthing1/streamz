@@ -1,14 +1,7 @@
-/**
- * Easy-to-use I/O streams: 32 bit Murmur3 hash calculation
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016.
- * Authors:   Maxim Freck
- */
-module freck.streams.murmur3;
+module streamz.murmur3;
 
-import freck.streams.streaminterface;
-import freck.streams.util: readScalar;
+import streamz.face;
+import streamz.util: readScalar;
 
 /+@nogc+/
 private pure nothrow uint rotl32(uint x, uint r) {
@@ -33,9 +26,9 @@ private pure nothrow uint fmix32(uint h) {
  *  s = The stream
  *  seed = An optional seed
  */
-@property uint murmur3(StreamInterface s, uint seed = 0)
+@property uint murmur3(IStream s, uint seed = 0)
 {
-	import freck.streams.stream;
+	import streamz.stream;
 
 	immutable auto length = s.length;
 	immutable auto nblocks = length >> 2;
@@ -91,7 +84,7 @@ private pure nothrow uint fmix32(uint h) {
 unittest
 {
 	import std.stdio: stdout, write, writeln;
-	import freck.streams.memorystream: MemoryStream;
+	import streamz.memorystream: MemoryStream;
 
 	write("Running MurMur3 tests:"); stdout.flush;
 

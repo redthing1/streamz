@@ -1,13 +1,6 @@
-/**
- * Easy-to-use I/O streams: CRC32 calculation
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016.
- * Authors:   Maxim Freck
- */
-module freck.streams.crc32;
+module streamz.crc32;
 
-import freck.streams.streaminterface;
+import streamz.face;
 
 private static immutable uint[256] crcTable = () {
 	uint[256] ret;
@@ -31,7 +24,7 @@ private static immutable uint[256] crcTable = () {
  * Params:
  *  s = The stream
  */
-uint crc32(StreamInterface s)
+uint crc32(IStream s)
 {
 	uint crc = 0xffffffff;
 
@@ -51,7 +44,7 @@ uint crc32(StreamInterface s)
 unittest
 {
 	import std.stdio: stdout, write, writeln;
-	import freck.streams.memorystream: MemoryStream;
+	import streamz.memorystream: MemoryStream;
 
 	write("Running CRC32 tests:"); stdout.flush;
 

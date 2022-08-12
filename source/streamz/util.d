@@ -1,14 +1,7 @@
-/**
- * Easy-to-use I/O streams: utility functions
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.util;
+module streamz.util;
 
 import std.traits: isScalarType;
-import freck.streams.streaminterface;
+import streamz.face;
 
 /***********************************
 	* Dumps abstract stream into a file
@@ -18,7 +11,7 @@ import freck.streams.streaminterface;
 	*  fileName = The destination file name
 	*  chunkSize = The read chunk size
 	*/
-void dumpToFile(StreamInterface src, string fileName, size_t chunkSize = 1024) @trusted
+void dumpToFile(IStream src, string fileName, size_t chunkSize = 1024) @trusted
 {
 	import std.stdio: File;
 
@@ -43,7 +36,7 @@ void dumpToFile(StreamInterface src, string fileName, size_t chunkSize = 1024) @
  *  s = The stream
  *  var = The variable to write
  */
-void writeRaw(T)(StreamInterface s, in T var) @trusted
+void writeRaw(T)(IStream s, in T var) @trusted
 {
 	import std.traits: isArray;
 	static if (isArray!T) {
@@ -63,7 +56,7 @@ void writeRaw(T)(StreamInterface s, in T var) @trusted
  * Params:
  *  s = The stream
  */
-T readRaw(T)(StreamInterface s) @trusted
+T readRaw(T)(IStream s) @trusted
 {
 	union Buffer {ubyte[T.sizeof] b; T var;}
 	Buffer buf;
@@ -153,7 +146,7 @@ pure nothrow immutable(T) nativeToLittleEndian(T)(T src) @trusted @nogc if (isSc
  *  s = The stream
  *  var = The variable to write
  */
-void writeScalar(T)(StreamInterface s, in T var) @trusted if (isScalarType!(T))
+void writeScalar(T)(IStream s, in T var) @trusted if (isScalarType!(T))
 {
 	union Buffer {ubyte[T.sizeof] b; T v;}
 	Buffer buf;
@@ -169,7 +162,7 @@ void writeScalar(T)(StreamInterface s, in T var) @trusted if (isScalarType!(T))
  * Params:
  *  s = The stream
  */
-T readScalar(T)(StreamInterface s) if (isScalarType!(T))
+T readScalar(T)(IStream s) if (isScalarType!(T))
 {
 	union Buffer {ubyte[T.sizeof] b; T v;}
 	Buffer buf;

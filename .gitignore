@@ -1,0 +1,4 @@
+streamz-test*
+*.a
+*.so
+.dub

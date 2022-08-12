@@ -1,18 +1,11 @@
-/**
- * Easy-to-use I/O streams: empty stream.
- *
- * License:   $(LINK2 http://www.boost.org/LICENSE_1_0.txt, Boost License 1.0)
- * Copyright: Maxim Freck, 2016–2017.
- * Authors:   Maxim Freck
- */
-module freck.streams.nullstream;
+module streamz.nullstream;
 
-import freck.streams.stream;
+import streamz.stream;
 
 ///Implementation of an empty stream.
 class EmptyStream : Stream
 {
-	import freck.streams.exception;
+	import streamz.exception;
 public:
 	this(string[string] metadata = null, Endian e = Endian.platform)
 	{
