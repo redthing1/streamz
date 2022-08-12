@@ -1,10 +1,7 @@
 
-[![Travis](https://travis-ci.org/maxfreck/freck-streams.svg?branch=master)](https://travis-ci.org/maxfreck/freck-streams)
-[![Dub version](https://img.shields.io/dub/v/freck-streams.svg)](https://code.dlang.org/packages/freck-streams)
+# streamz
 
-# Freck Streams
-
-This packae contains primitives for I/O using streams and stream decorators.
+a stream IO library for D based on freck-streams abandoned source code.
 
 ## MemoryStream
 
