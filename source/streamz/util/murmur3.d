@@ -1,7 +1,7 @@
 module streamz.murmur3;
 
 import streamz.face;
-import streamz.util: readScalar;
+import streamz.util.misc: readScalar;
 
 /+@nogc+/
 private pure nothrow uint rotl32(uint x, uint r) {

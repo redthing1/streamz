@@ -1,4 +1,4 @@
-module streamz.util;
+module streamz.util.misc;
 
 import std.traits: isScalarType;
 import streamz.face;

@@ -1,4 +1,4 @@
-module streamz.appendstream;
+module streamz.streams.appendstream;
 
 import streamz.stream;
 
@@ -6,7 +6,7 @@ import streamz.stream;
 class AppendStream : Stream
 {
 	import streamz.exception;
-	import streamz.util: writeRaw;
+	import streamz.util.misc: writeRaw;
 
 protected:
 	IStream[] streams;

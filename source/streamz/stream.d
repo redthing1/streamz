@@ -22,7 +22,7 @@ public:
 	 */
 	void setEndian(Endian e)
 	{
-		import streamz.util: platformEndian;
+		import streamz.util.misc: platformEndian;
 		this.endian = (e == Endian.platform) ? platformEndian : e;
 	}
 

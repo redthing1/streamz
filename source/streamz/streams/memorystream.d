@@ -1,4 +1,4 @@
-module streamz.memorystream;
+module streamz.streams.memorystream;
 
 import streamz.stream;
 
@@ -6,7 +6,7 @@ import streamz.stream;
 class MemoryStream : Stream
 {
 	import streamz.exception;
-	import streamz.util: writeRaw;
+	import streamz.util.misc: writeRaw;
 
 protected:
 	ubyte[] buf;
